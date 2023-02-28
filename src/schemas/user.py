@@ -4,7 +4,7 @@ from src.enums.user_enums import Genders, Statuses, UserError
 
 class User(BaseModel):
     id: int
-    name: str
+    name: int
     email: str
     gender: Genders
     status: Statuses
