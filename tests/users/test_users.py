@@ -3,6 +3,9 @@ import pytest
 from src.baseclasses.response import Response
 from src.schemas.user import User
 
+from src.schemas.computer import Computer
+from examples import computer
+
 # SERVICE_URL = "https://gorest.co.in/public/v1/users"
 # resp = requests.get(SERVICE_URL)
 # print(resp.__getstate__())
@@ -44,3 +47,8 @@ def test_calculator(first_value, second_value, result, calculate):
 @pytest.mark.production
 def test_another_failing():
     assert 1==2
+
+
+def test_pydantic_object():
+    comp = Computer.parse_obj(computer)
+    print(comp.detailed_info.physical.color)

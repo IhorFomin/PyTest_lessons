@@ -11,7 +11,7 @@ class Player(BuilderBaseClass):
         self.reset()
 
     
-    def set_status(self, status=Statuses.active.value):
+    def set_status(self, status=Statuses.ACTIVE.value):
         self.result['account_status'] = status
         return self
     
