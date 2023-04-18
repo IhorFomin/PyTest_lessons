@@ -4,7 +4,6 @@ import tables
 
 from sqlalchemy.sql.expression import desc
 
-
 # result = session.query(
 #     tables.Films.id, tables.Films.name_film
 # ).filter(
@@ -27,7 +26,6 @@ from sqlalchemy.sql.expression import desc
 
 film_ids = session.query(tables.Films.id, tables.Films.name_film).order_by(desc(tables.Films.id)).limit(1).offset(1).all()
 print(film_ids)
-
 
 
 computer = {
