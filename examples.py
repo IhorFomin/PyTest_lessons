@@ -1,31 +1,31 @@
-from db import session
+# from db import session
 
-import tables
+# import tables
 
-from sqlalchemy.sql.expression import desc
+# from sqlalchemy.sql.expression import desc
 
-# result = session.query(
-#     tables.Films.id, tables.Films.name_film
-# ).filter(
-#     tables.Films.id > 1,
-#     tables.Films.id < 3,
-# ).all()
+# # result = session.query(
+# #     tables.Films.id, tables.Films.name_film
+# # ).filter(
+# #     tables.Films.id > 1,
+# #     tables.Films.id < 3,
+# # ).all()
 
-# film_ids = session.query(tables.Films.id).filter(tables.Films.id > 1).subquery()
+# # film_ids = session.query(tables.Films.id).filter(tables.Films.id > 1).subquery()
 
-# if result:
-#     print("All is good")
-# else:
-#     print("Not good")
+# # if result:
+# #     print("All is good")
+# # else:
+# #     print("Not good")
 
-# print(result)
+# # print(result)
+# # print(film_ids)
+
+# # result = session.query(tables.Films.name_film).filter(tables.Films.id.in_(film_ids)).all()
+# # print(result)
+
+# film_ids = session.query(tables.Films.id, tables.Films.name_film).order_by(desc(tables.Films.id)).limit(1).offset(1).all()
 # print(film_ids)
-
-# result = session.query(tables.Films.name_film).filter(tables.Films.id.in_(film_ids)).all()
-# print(result)
-
-film_ids = session.query(tables.Films.id, tables.Films.name_film).order_by(desc(tables.Films.id)).limit(1).offset(1).all()
-print(film_ids)
 
 
 computer = {
