@@ -77,3 +77,19 @@ def generate_item_type(get_db_session, get_item_type_generator, get_add_method, 
     get_add_method(get_db_session, item)
     yield item
     get_delete_method(get_db_session, tables.ItemType, (tables.ItemType.item_id == item.item_id))
+
+
+def pytest_addoption(parser):
+    parser.addoption(
+        '--env',
+        default='development',
+        help='It is env variable where our tests will be run. Possible values:'
+             'prod, development(default), QA'
+    )
+
+
+@pytest.fixture(autouse=True)
+def getting_env(request):
+    env = request.config.getoption('--env')
+    yield env
+    
